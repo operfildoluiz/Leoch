@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example</title>
+</head>
+<body>
+    <h1>Hello, I'm {{$somevar}}</h1>
+    <p>This is a {{$level}} example</p>
+
+    @if[strlen($somevar) > 3]
+        <p>If somevar length is greater than 3, you're probably seeing this</p>
+    @endif
+
+    @if[$somenumber >= 5]
+        <p>If somenumber is greater than 5, you'll see this too.</p>
+    @else
+        <p>If somenumber is smaller than 5, you'll see this instead.</p>
+    @endif
+
+    <!-- @foreach[$somearray as $element]
+        <p>Stop repeat, $element!</p>
+    @endforeach -->
+</body>
+</html>
