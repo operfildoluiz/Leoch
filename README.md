@@ -1,5 +1,6 @@
-# leoch
-Leoch is a PHP server-side template rendering engine
+# Leoch
+
+Leoch is a simple PHP server-side template rendering engine
 
 ## Basic Syntax
 - Variable
@@ -7,6 +8,7 @@ Leoch is a PHP server-side template rendering engine
 {{var}}
 
 - Conditional Sentences
+
 @if[...]
 
 @elseif[...]
@@ -19,7 +21,7 @@ Leoch is a PHP server-side template rendering engine
 
 @foreach($array in $var)
 
-    I'm a $var
+I'm a $var
 
 @endforeach
 
