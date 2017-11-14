@@ -2,6 +2,10 @@
 
 namespace Leoch\App\Processor;
 
+use Leoch\App\Processor\Interpretor\Conditional;
+use Leoch\App\Processor\Interpretor\Iterator;
+use Leoch\App\Processor\Interpretor\Variable;
+
 class ContentProcessor {
 
     private $content;
@@ -21,18 +25,13 @@ class ContentProcessor {
      */
     public function setContent($content, $args)
     {
-        # Variable Treatments
-        $vars = str_replace(array("{{\$","}}"), array("@@",""), $content);
-        foreach ($args as $arg) {
-            $vars = str_replace("@@".$arg[0], $arg[1], $vars);
-        }
-        $content = $vars;
+        $content = str_replace(array("\n","\r","\t"), array(""), $content);
 
-        # Conditional Treatments
-        $content = str_replace(array("@if[","@elseif[","]","@else","@endif"), array("<?php if (","<?php elseif (","): ?>", "<?php else: ?>", "<?php endif; ?>"), $content);
-        /*$content = str_replace(array("@foreach[","]","@endforeach"), array("<?php foreach (","): ?>", "<?php endforeach; ?>"), $content);*/
+        $content = Variable::process($content, $args);
+        $content = Conditional::process($content);
+        $content = Iterator::process($content);
+        $content = str_replace(array("]"), array("): ?>"), $content);
 
-        // echo '<pre>'; print_r($content); die();
         $this->content = $content;
 
         return $this;

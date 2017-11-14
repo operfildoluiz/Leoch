@@ -1,8 +1,10 @@
 <?php
 
-namespace Leoch\App\Processor;
+namespace Leoch\App;
 
-class TemplateProcessor {
+use Leoch\App\Processor\ContentProcessor;
+
+class Template {
 
     private $source;
     private $content;
@@ -11,6 +13,8 @@ class TemplateProcessor {
     public function setSrc($src) {
         $content = file_get_contents('../templates/' . $src . '.leoch');
         $this->content = $content;
+
+        return $this;
     }
 
     public function fill($ins) {
@@ -33,6 +37,8 @@ class TemplateProcessor {
 
         }
         $this->content = "<?php $vars ?>\n" . $this->content;
+
+        return $this;
     }
 
     public function render() {

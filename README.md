@@ -3,13 +3,25 @@ Leoch is a PHP server-side template rendering engine
 
 ## Basic Syntax
 - Variable
+
 {{var}}
 
 - Conditional Sentences
 @if[...]
+
 @elseif[...]
+
 @else
+
 @endif
+
+- Loop
+
+@foreach($array in $var)
+
+    I'm a $var
+
+@endforeach
 
 ## Rendering
 
@@ -17,12 +29,14 @@ Leoch is a PHP server-side template rendering engine
 
     use Leoch\App\Processor\TemplateProcessor;
 
-    $template = new TemplateProcessor();
-    // should be at templates/example.leoch
-    $template->setSrc('example');
-    $template->fill([
-            'somevar' => 'Some Var',
-            'level' => 'basic',
-            'somenumber' => 1
-        ]);
-    echo $template->render();
+    $template = new Template();
+    $template->setSrc('example')
+             ->fill([
+                    'somevar' => 'Some Var',
+                    'level' => 'basic',
+                    'somenumber' => 2,
+                    'somearray' => array('Red', 'Blue'),
+                    'somearray2' => array('Vermelho', 'Azul'),
+                ])
+             ->render();
+

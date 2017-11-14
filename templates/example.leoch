@@ -18,8 +18,16 @@
         <p>If somenumber is smaller than 5, you'll see this instead.</p>
     @endif
 
-    <!-- @foreach[$somearray as $element]
-        <p>Stop repeat, $element!</p>
-    @endforeach -->
+    <ul>
+    @foreach[$somearray as $elemt]
+        <li>Stop repeat, $elemt</li>
+    @endforeach
+    </ul>
+
+    <ol>
+    @foreach[$somearray2 as $maam]
+        <li>I said stop, $maam!</li>
+    @endforeach
+    </ol>
 </body>
 </html>
