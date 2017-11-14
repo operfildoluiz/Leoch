@@ -29,7 +29,9 @@ Leoch is a simple PHP server-side template rendering engine.
 - Loop
 
     @while[$i < 10]
+
         $i++
+
     @endwhile
 
 ## Rendering
