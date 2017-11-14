@@ -22,7 +22,11 @@ class Variable implements Interpretor {
     }
 
     public static function processIterate($content) {
-        return "<?php echo " .$content . "; ?>";
+        if (!stripos($content, "++"))
+            return "<?php echo " .$content . "; ?>";
+        else
+            return "<?php " .$content . "; ?>";
+
     }
 
 }

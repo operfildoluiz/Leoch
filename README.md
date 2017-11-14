@@ -1,33 +1,38 @@
 [![Sele_o_001.png](https://s17.postimg.org/kjbvqrcm7/Sele_o_001.png)](https://postimg.org/image/ugmwjtk7v/)
 
-Leoch is a simple PHP server-side template rendering engine
+Leoch is a simple PHP server-side template rendering engine.
 
 ## Basic Syntax
+
 - Variable
 
-{{var}}
+    {{$var}}
 
 - Conditional Sentences
 
-@if[...]
+    @if[...]
 
-@elseif[...]
+    @elseif[...]
 
-@else
+    @else
 
-@endif
+    @endif
+
+- Iterator
+
+    @foreach($array in $var)
+
+    I'm a $var
+
+    @endforeach
 
 - Loop
 
-@foreach($array in $var)
-
-I'm a $var
-
-@endforeach
+    @while[$i < 10]
+        $i++
+    @endwhile
 
 ## Rendering
-
-    namespace Leoch\App;
 
     use Leoch\App\Processor\TemplateProcessor;
 

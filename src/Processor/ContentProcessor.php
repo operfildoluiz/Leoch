@@ -4,6 +4,7 @@ namespace Leoch\App\Processor;
 
 use Leoch\App\Processor\Interpretor\Conditional;
 use Leoch\App\Processor\Interpretor\Iterator;
+use Leoch\App\Processor\Interpretor\Loop;
 use Leoch\App\Processor\Interpretor\Variable;
 
 class ContentProcessor {
@@ -30,7 +31,10 @@ class ContentProcessor {
         $content = Variable::process($content, $args);
         $content = Conditional::process($content);
         $content = Iterator::process($content);
+        $content = Loop::process($content);
         $content = str_replace(array("]"), array("): ?>"), $content);
+
+        // echo '<pre>'; print_r($content); die();
 
         $this->content = $content;
 
