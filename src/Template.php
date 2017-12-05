@@ -8,10 +8,25 @@ class Template {
 
     private $source;
     private $content;
+    private $templateDirectory;
     private $args = array();
 
+    public function __construct($src = null) {
+        if ($src == null)
+            $this->setTemplateDirectory('../templates');
+        else
+            $this->setTemplateDirectory($src);
+
+    }
+
+    public function setTemplateDirectory($templateDirectory) {
+        $this->templateDirectory = $templateDirectory;
+
+        return $this;
+    }
+
     public function setSrc($src) {
-        $content = file_get_contents('../templates/' . $src . '.leoch');
+        $content = file_get_contents($this->templateDirectory . '/' . $src . '.leoch.php');
         $this->content = $content;
 
         return $this;
@@ -41,7 +56,7 @@ class Template {
         return $this;
     }
 
-    public function render() {
+    public function render($preventRendering = false) {
         $processor = new ContentProcessor();
         $processor->setContent($this->content, $this->args);
         return eval('?>' . $processor->getContent() . '<?php ');
