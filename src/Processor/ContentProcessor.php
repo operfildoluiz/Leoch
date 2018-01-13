@@ -1,11 +1,8 @@
 <?php
 
-namespace Leoch\App\Processor;
+namespace Leoch\Processor;
 
-use Leoch\App\Processor\Interpretor\Conditional;
-use Leoch\App\Processor\Interpretor\Iterator;
-use Leoch\App\Processor\Interpretor\Loop;
-use Leoch\App\Processor\Interpretor\Variable;
+use Leoch\App\Processor\Interpretor as I;
 
 class ContentProcessor {
 
@@ -28,13 +25,11 @@ class ContentProcessor {
     {
         $content = str_replace(array("\n","\r","\t"), array(""), $content);
 
-        $content = Variable::process($content, $args);
-        $content = Conditional::process($content);
-        $content = Iterator::process($content);
-        $content = Loop::process($content);
+        $content = I\Variable::process($content, $args);
+        $content = I\Conditional::process($content);
+        $content = I\Iterator::process($content);
+        $content = I\Loop::process($content);
         $content = str_replace(array("]"), array("): ?>"), $content);
-
-        // echo '<pre>'; print_r($content); die();
 
         $this->content = $content;
 

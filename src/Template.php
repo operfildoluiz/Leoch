@@ -2,7 +2,7 @@
 
 namespace Leoch\App;
 
-use Leoch\App\Processor\ContentProcessor;
+use Leoch\Processor\ContentProcessor;
 
 class Template {
 

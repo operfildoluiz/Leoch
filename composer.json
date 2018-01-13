@@ -1,13 +1,13 @@
 {
     "name": "lhcgoncalves/leoch",
-    "description": "Leoch is a PHP server-side template rendering engine",
+    "description": "Leoch is a simple PHP server-side template rendering engine",
     "authors": [
         {
             "name": "Luiz Goncalves",
             "email": "dev.luizh@gmail.com"
         }
     ],
-    "type": "library",
+    "type": "package",
     "license": "MIT",
     "require": {},
     "autoload": {

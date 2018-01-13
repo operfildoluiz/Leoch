@@ -1,6 +1,6 @@
 <?php
 
-namespace Leoch\App\Processor\Interpretor;
+namespace Leoch\Processor\Interpretor;
 
 class Loop implements Interpretor {
 
