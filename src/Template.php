@@ -1,6 +1,6 @@
 <?php
 
-namespace Leoch\App;
+namespace Leoch;
 
 use Leoch\Processor\ContentProcessor;
 

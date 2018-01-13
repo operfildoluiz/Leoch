@@ -1,10 +1,10 @@
 <?php
 
-namespace Leoch\App;
+namespace Leoch;
 include_once("../vendor/autoload.php");
 
 // Import Leoch in your project
-use Leoch\App\Template;
+use Leoch\Template;
 
 // Create a new template. Set in Template() the main directory to find the files
 $template = new Template('templates');
