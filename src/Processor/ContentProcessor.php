@@ -2,7 +2,7 @@
 
 namespace Leoch\Processor;
 
-use Leoch\App\Processor\Interpretor as I;
+use Leoch\Processor\Interpretor as I;
 
 class ContentProcessor {
 
