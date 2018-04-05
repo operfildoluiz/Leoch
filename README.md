@@ -4,7 +4,7 @@ Leoch is a simple PHP server-side template rendering engine.
 
 ## Demo
 
-See `demo/index.php` for server-side reference and `demo/templates/index.blade.php` for Leoch syntax reference.
+See `demo/index.php` for server-side reference and `demo/templates/index.leoch.php` for Leoch syntax reference.
 
 ## Basic Syntax
 
